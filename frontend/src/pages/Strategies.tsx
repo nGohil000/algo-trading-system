@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Play, Pause, Trash2, Edit, Copy, MoreVertical } from 'lucide-react'
+import { Play, Pause, Trash2, Edit } from 'lucide-react'
 
 const strategies = [
   { id: 1, name: 'EMA Crossover', type: 'Trend', status: 'running', pnl: '+12.5%', trades: 45 },

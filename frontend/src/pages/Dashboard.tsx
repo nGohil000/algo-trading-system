@@ -1,4 +1,4 @@
-import { TrendingUp, TrendingDown, Wallet, Activity, DollarSign, BarChart3 } from 'lucide-react'
+import { Wallet, Activity, DollarSign, BarChart3 } from 'lucide-react'
 
 const stats = [
   { label: 'Portfolio Value', value: '$125,420', change: '+12.5%', icon: Wallet, positive: true },

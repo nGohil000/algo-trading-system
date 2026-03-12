@@ -1,4 +1,4 @@
-import { Star, Download, Eye, DollarSign } from 'lucide-react'
+import { Star, Download, Eye } from 'lucide-react'
 
 const marketplaceStrategies = [
   { 

@@ -1,4 +1,4 @@
-import { Play, Pause, RefreshCw } from 'lucide-react'
+import { Play, RefreshCw } from 'lucide-react'
 
 const positions = [
   { symbol: 'BTCUSDT', side: 'LONG', qty: 0.5, entry: 65000, current: 67500, pnl: '+3.8%', time: '2h ago' },
