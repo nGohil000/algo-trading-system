@@ -1,0 +1,13 @@
+{
+  "name": "algo-trading-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm run preview -- --port $PORT --host"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
