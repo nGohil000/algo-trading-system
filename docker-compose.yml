@@ -8,6 +8,8 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
+    environment:
+      - NODE_ENV=production
     command: npm run dev
 
   backend:
@@ -16,4 +18,8 @@ services:
       - "8000:8000"
     volumes:
       - ./backend:/app
-    command: uvicorn main:app --host 0.0.0.0 --reload
+      - ./data:/app/data
+    environment:
+      - DATABASE_URL=sqlite:///app/data/tradebot.db
+      - SECRET_KEY=dev-secret-change-in-production
+    command: uvicorn app.main:app --host 0.0.0.0 --reload
