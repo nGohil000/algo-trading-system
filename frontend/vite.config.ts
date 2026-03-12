@@ -12,4 +12,9 @@ export default defineConfig({
       },
     },
   },
+  preview: {
+    host: true,
+    port: 10000,
+    allowedHosts: ['algo-trading-system-s69h.onrender.com', 'algo-trading-system.onrender.com'],
+  },
 })
