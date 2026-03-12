@@ -1,13 +1,15 @@
+import { useState } from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
 import { 
   LayoutDashboard, 
   Wand2, 
   FlaskConical, 
   TrendingUp, 
-  Rocket, 
-  Store,
+  Rocket,
   Settings,
-  Zap
+  Zap,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react'
 
 const navItems = [
@@ -17,22 +19,27 @@ const navItems = [
   { to: '/backtest', icon: FlaskConical, label: 'Backtest' },
   { to: '/paper-trading', icon: TrendingUp, label: 'Paper Trading' },
   { to: '/live-trading', icon: Rocket, label: 'Live Trading' },
-  { to: '/marketplace', icon: Store, label: 'Marketplace' },
 ]
 
 export default function Layout() {
+  const [sidebarVisible, setSidebarVisible] = useState(true)
+
   return (
     <div className="flex min-h-screen bg-slate-900">
       {/* Sidebar */}
-      <aside className="w-64 bg-slate-800 border-r border-slate-700 p-4">
+      <aside 
+        className={`${sidebarVisible ? 'w-64' : 'w-16'} bg-slate-800 border-r border-slate-700 p-4 transition-all duration-300`}
+      >
         <div className="flex items-center gap-2 mb-8">
-          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
             <Zap className="w-6 h-6 text-white" />
           </div>
-          <div>
-            <h1 className="text-lg font-bold text-white">TradeBot</h1>
-            <p className="text-xs text-slate-400">Algo Trading Platform</p>
-          </div>
+          {sidebarVisible && (
+            <div>
+              <h1 className="text-lg font-bold text-white">TradeBot</h1>
+              <p className="text-xs text-slate-400">Algo Trading Platform</p>
+            </div>
+          )}
         </div>
         
         <nav className="space-y-1">
@@ -48,19 +55,28 @@ export default function Layout() {
                 }`
               }
             >
-              <Icon className="w-5 h-5" />
-              <span>{label}</span>
+              <Icon className="w-5 h-5 flex-shrink-0" />
+              {sidebarVisible && <span>{label}</span>}
             </NavLink>
           ))}
         </nav>
         
         <div className="absolute bottom-4 left-4 right-4">
           <button className="flex items-center gap-3 px-3 py-2 w-full text-slate-400 hover:bg-slate-700 rounded-lg">
-            <Settings className="w-5 h-5" />
-            <span>Settings</span>
+            <Settings className="w-5 h-5 flex-shrink-0" />
+            {sidebarVisible && <span>Settings</span>}
           </button>
         </div>
       </aside>
+      
+      {/* Toggle Button */}
+      <button
+        onClick={() => setSidebarVisible(!sidebarVisible)}
+        className="absolute top-4 left-4 z-10 p-2 bg-slate-700 hover:bg-slate-600 rounded-lg text-white"
+        style={{ left: sidebarVisible ? '260px' : '20px' }}
+      >
+        {sidebarVisible ? <ChevronLeft className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+      </button>
       
       {/* Main Content */}
       <main className="flex-1 p-6 overflow-auto">

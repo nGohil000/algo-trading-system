@@ -6,7 +6,6 @@ import StrategyBuilder from './pages/StrategyBuilder'
 import Backtest from './pages/Backtest'
 import PaperTrading from './pages/PaperTrading'
 import LiveTrading from './pages/LiveTrading'
-import Marketplace from './pages/Marketplace'
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
           <Route path="backtest" element={<Backtest />} />
           <Route path="paper-trading" element={<PaperTrading />} />
           <Route path="live-trading" element={<LiveTrading />} />
-          <Route path="marketplace" element={<Marketplace />} />
         </Route>
       </Routes>
     </BrowserRouter>
